@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 20:19:54 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/02 17:40:10 by acrucesp         ###   ########.fr       */
+/*   Created: 2021/04/04 18:30:30 by acrucesp          #+#    #+#             */
+/*   Updated: 2021/04/04 20:01:41 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_itoa(long long int n)
 {
-	char	*aux;
-	int		i;
+	unsigned long long	nn;
+	char				*ret;
+	int					i;
+	int					s;
 
-	i = -1;
-	aux = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	if (!aux)
-		return (0);
-	while (s[++i])
-		aux[i] = s[i];
-	return (aux);
+	i = ft_ndigit(n, 10);
+	if (n < 0 && ++i)
+	{
+		nn = -n;
+		s = 1;
+	}		
+	else
+		nn = n;
+	ret = ft_calloc(sizeof(char), i + 1);
+	if (nn == 0)
+		ret[0] = '0';
+	while (nn != 0)
+	{
+		ret[--i] = 48 + nn % 10;
+		nn = nn / 10;
+	}
+	if (s == 1)
+		ret[0] = '-';
+	return (ret);
 }

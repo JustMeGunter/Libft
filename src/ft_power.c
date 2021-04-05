@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 20:19:54 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/02 17:40:10 by acrucesp         ###   ########.fr       */
+/*   Created: 2021/04/04 17:49:35 by acrucesp          #+#    #+#             */
+/*   Updated: 2021/04/04 18:29:23 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+long long int	ft_power(long long int base, long long int power)
 {
-	char	*aux;
-	int		i;
+	long long int	n_aux;
 
-	i = -1;
-	aux = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	if (!aux)
+	if (!base)
+		return (1);
+	if (power < 0)
 		return (0);
-	while (s[++i])
-		aux[i] = s[i];
-	return (aux);
+	n_aux = base;
+	while (power-- > 1)
+		base *= n_aux;
+	return (base);
 }

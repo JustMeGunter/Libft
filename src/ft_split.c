@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/01 20:19:54 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/02 17:40:10 by acrucesp         ###   ########.fr       */
+/*   Created: 2021/04/02 21:09:04 by acrucesp          #+#    #+#             */
+/*   Updated: 2021/04/03 21:21:05 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strdup(const char *s)
+char	**ft_split(char const *s, char c)
 {
+	char	**ret;
 	char	*aux;
 	int		i;
+	int		j;
+	int		start;
 
-	i = -1;
-	aux = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	if (!aux)
+	if (!s)
 		return (0);
-	while (s[++i])
-		aux[i] = s[i];
-	return (aux);
+	i = 0;
+	aux = ft_trimf(s, (char []){c, '\0'});
+	j = ft_nsep(aux, c);
+	ret = ft_calloc(sizeof(char *), j + 2);
+	if (!ret)
+		return (0);
+	j = 0;
+	while (aux[j])
+	{
+		start = j;
+		while (aux[j] != c && aux[j])
+			j++;
+		ret[i++] = ft_substr(aux, start, j - start);
+		if (aux[j])
+			j++;
+	}
+	return (ret);
 }
