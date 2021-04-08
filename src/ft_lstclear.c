@@ -6,13 +6,13 @@
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 20:26:36 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/05 20:59:27 by acrucesp         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:37:05 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list		*last;
 
