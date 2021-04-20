@@ -6,7 +6,7 @@
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 18:30:30 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/04 20:01:41 by acrucesp         ###   ########.fr       */
+/*   Updated: 2021/04/18 21:58:30 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ char	*ft_itoa(long long int n)
 	int					s;
 
 	i = ft_ndigit(n, 10);
-	if (n < 0 && ++i)
-	{
+	s = 0;
+	if (n < 0 && ++i && ++s)
 		nn = -n;
-		s = 1;
-	}		
 	else
 		nn = n;
 	ret = ft_calloc(sizeof(char), i + 1);
