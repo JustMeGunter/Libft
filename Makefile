@@ -6,7 +6,7 @@
 #    By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 17:42:40 by acrucesp          #+#    #+#              #
-#    Updated: 2021/04/24 23:39:10 by acrucesp         ###   ########.fr        #
+#    Updated: 2021/04/25 00:04:22 by acrucesp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c\
 
 
 OBJ_DIR = obj/
-#OBJ = $(SRC:%.c=%.o)
-#OBJ = $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 
 all: $(NAME)
@@ -54,7 +52,7 @@ $(NAME): $(OBJ)
 .PHONY: all clean fclean re
 
 clean:
-		$(RM) -rf $(OBJ_DIR)
+	$(RM) -rf $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
