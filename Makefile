@@ -6,7 +6,7 @@
 #    By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 17:42:40 by acrucesp          #+#    #+#              #
-#    Updated: 2021/04/08 18:24:35 by acrucesp         ###   ########.fr        #
+#    Updated: 2021/04/24 23:34:23 by acrucesp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ INC_DIR = inc/
 HEADER = libft.h
 
 SRC_DIR = src/
-SRC = ft_memset.c \
-	  ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c\
+SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c\
 	  ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strnstr.c\
 	  ft_strncmp.c ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isprint.c\
 	  ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c\
@@ -34,20 +33,28 @@ SRC = ft_memset.c \
 
 
 OBJ_DIR = obj/
-OBJ = $(SRC:%.c=%.o)
-
-%o: $(SRC_DIR)%c
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $(OBJ_DIR)$@
-
-$(NAME): $(OBJ)
-	ar rcs $@ $(addprefix $(OBJ_DIR), $^)
-
-.PHONY: all clean fclean re
+#OBJ = $(SRC:%.c=%.o)
+#OBJ = $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC:%.c=%.o))
 
 all: $(NAME)
 
+$(OBJ_DIR)%o: $(SRC_DIR)%c
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+
+$(OBJ): | $(OBJ_DIR)
+
+$(OBJ_DIR):
+	echo $(OBJ)
+	mkdir -p $(OBJ_DIR)
+
+$(NAME): $(OBJ)
+	ar rcs $@ $^
+
+.PHONY: all clean fclean re
+
 clean:
-	$(RM) $(addprefix $(OBJ_DIR), $(OBJ))
+		$(RM) -rf $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
