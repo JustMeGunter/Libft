@@ -6,7 +6,7 @@
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:03:14 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/07 17:49:11 by acrucesp         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:49:51 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ char			*ft_trimf(const char *str, char *set);
 int				ft_nsep(char *str, char c);
 char			*ft_itoa(long long int n);
 long long int	ft_power(long long int base, long long int power);
-long long int	ft_ndigit(long long int n, long long int base);
+long long int	ft_ndigit(long long int n,
+				long long unsigned int base);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
@@ -72,5 +73,8 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **alst, t_list *new);
+char			*ft_itoa_base(long long unsigned int n, int base,
+					char *elm_base);
+char			*ft_strchrs(const char *str, char *set);
 
 #endif

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strchrs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 17:49:35 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/04/19 22:15:53 by acrucesp         ###   ########.fr       */
+/*   Created: 2021/04/13 19:29:00 by acrucesp          #+#    #+#             */
+/*   Updated: 2021/04/13 19:29:28 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-long long int	ft_power(long long int base, long long int power)
+char	*ft_strchrs(const char *str, char *set)
 {
-	long long int	n_aux;
+	int	i;
 
-	if (!base)
-		return (1);
-	if (power < 0)
-		return (0);
-	n_aux = base;
-	while (power-- > 1)
-		base *= n_aux;
-	return (base);
+	while (*str)
+	{
+		i = 0;
+		while (set[i])
+		{
+			if (*str == set[i])
+				return ((char *)str);
+			i++;
+		}
+		str++;
+	}
+	return (0);
 }
