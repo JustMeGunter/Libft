@@ -6,13 +6,13 @@
 #    By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 17:42:40 by acrucesp          #+#    #+#              #
-#    Updated: 2021/04/25 00:04:22 by acrucesp         ###   ########.fr        #
+#    Updated: 2021/04/25 21:02:54 by acrucesp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = clang
+CC = gcc 
 CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -f
