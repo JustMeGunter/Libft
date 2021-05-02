@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_ndigit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 17:49:35 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/05/02 19:04:25 by acrucesp         ###   ########.fr       */
+/*   Created: 2021/04/04 17:43:22 by acrucesp          #+#    #+#             */
+/*   Updated: 2021/05/02 19:04:37 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long int	ft_power(long long int base, long long int power)
+long long int	ft_ndigit(long long int n, long long unsigned int base)
 {
-	long long int	n_aux;
+	long long unsigned int		n_dgt;
 
-	if (!base)
+	n_dgt = 1;
+	if (n < 0)
+		n = -n;
+	if (n == 0)
 		return (1);
-	if (power < 0)
-		return (0);
-	n_aux = base;
-	while (power-- > 1)
-		base *= n_aux;
-	return (base);
+	while (n >= ft_power(base, n_dgt))
+		n_dgt++;
+	return (n_dgt);
 }
