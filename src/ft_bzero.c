@@ -6,7 +6,7 @@
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 18:40:11 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/03/27 19:02:22 by acrucesp         ###   ########.fr       */
+/*   Updated: 2021/05/03 21:13:01 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	if (n)
 		while (n--)
-			((char *)s)[i++] = 0;
+			((unsigned char *)s)[i++] = 0;
 }

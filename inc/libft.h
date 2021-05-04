@@ -6,7 +6,7 @@
 /*   By: acrucesp <acrucesp@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 20:03:14 by acrucesp          #+#    #+#             */
-/*   Updated: 2021/05/02 19:04:15 by acrucesp         ###   ########.fr       */
+/*   Updated: 2021/05/04 18:57:11 by acrucesp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int				ft_nsep(char *str, char c);
 char			*ft_itoa(long long int n);
 long long int	ft_power(long long int base, long long int power);
 long long int	ft_ndigit(long long int n,
-				long long unsigned int base);
+					long long unsigned int base);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
