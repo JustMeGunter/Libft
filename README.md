@@ -7,8 +7,8 @@ You can see [here](https://www.notion.so/Libft-081572adf06045c5ba5113aa61419d22)
 
 ### DEPENDENCIES
 
-- Make
-- C compiler
+- Make.
+- C compiler.
 
 ### COMPILATION
 
